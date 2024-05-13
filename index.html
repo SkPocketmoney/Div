@@ -81,12 +81,16 @@ button:last-child {
     <button onclick="closeParentTab()">Close Parent Tab</button>
 </div>
 
-<script>
 
+
+
+<script>
 function redirectToRegistration() {
     var username = document.getElementById("username").value;
     var url = "https://www.hipi.co.in/registration?email=" + username;
-    window.open(url, "_blank");
+
+    // Open the registration link in the same tab
+    window.location.href = url;
 }
 
 function pasteFromClipboard() {
@@ -106,7 +110,7 @@ function openLink1() {
 function openLink2() {
     window.open("https://www.hipi.co.in/@mhindi445", "_blank");
 }
-  
+
 function openLink3() {
     window.open("https://www.hipi.co.in/embed/219bcd53-de0c-4fb2-9b08-5cfe3abb02f5", "_blank");
 }
@@ -114,16 +118,18 @@ function openLink3() {
 function openLink4() {
     window.open("https://www.hipi.co.in/single-video/99477173-256a-4a8c-b5d3-9f7296b06c46?feed=profile&keyword=mhindi445&index=0&tab=all&pinCount=0", "_blank");
 }
-  
+
 function openLink5() {
     window.open("https://www.hipi.co.in/single-video/f127722c-c359-4daa-85d4-a2688ed1e88e?feed=profile&keyword=mhindi445&index=1&tab=all&pinCount=0", "_blank");
 }
 
 function closeParentTab() {
-    window.close();
+    window.opener = null; // Ensure the current window has no opener
+    window.open("", "_self"); // Open a new empty window
+    window.close(); // Close the current window
 }
-
 </script>
+
 
 </body>
 </html>
