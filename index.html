@@ -20,12 +20,25 @@ body {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
+.input-container {
+    position: relative;
+}
+
 input[type="text"] {
-    width: 100%;
+    width: calc(100% - 30px); /* Adjusting width to accommodate the clipboard icon */
     padding: 10px;
     margin-bottom: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
+}
+
+.clipboard-icon {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    width: 20px;
+    cursor: pointer;
 }
 
 button {
@@ -49,20 +62,21 @@ button:last-child {
 
 <div class="container">
     <label for="username">Enter your email: </label><br>
-    <input type="text" id="username" name="username"><br>
+    <div class="input-container">
+        <input type="text" id="username" name="username">
+        <img alt="📋" class="clipboard-icon" onclick="pasteFromClipboard()">
+    </div>
     <button onclick="redirectToRegistration()">Submit</button><br><br>
     
     <button onclick="openLink1()">ID 1</button>
   
-  
-  <button onclick="openLink3()">v-1 (1) </button></br>
+    <button onclick="openLink3()">v-1 (1) </button><br>
   
     <button onclick="openLink2()">ID 2</button>
   
-  
     <button onclick="openLink4()">v-1(2)</button>
 
-  <button onclick="openLink5()">v-2(2)</button>
+    <button onclick="openLink5()">v-2(2)</button>
   
 </div>
 
@@ -74,6 +88,15 @@ function redirectToRegistration() {
     window.open(url, "_blank");
 }
 
+function pasteFromClipboard() {
+    navigator.clipboard.readText()
+        .then(text => {
+            document.getElementById("username").value = text;
+        })
+        .catch(err => {
+            console.error('Failed to read clipboard contents: ', err);
+        });
+}
 
 function openLink1() {
     window.open("https://www.hipi.co.in/@onlybeauty_girl", "_blank");
@@ -83,28 +106,19 @@ function openLink2() {
     window.open("https://www.hipi.co.in/@mhindi445", "_blank");
 }
   
-  function openLink3() {
-    window.open(" https://www.hipi.co.in/embed/219bcd53-de0c-4fb2-9b08-5cfe3abb02f5", "_blank");
+function openLink3() {
+    window.open("https://www.hipi.co.in/embed/219bcd53-de0c-4fb2-9b08-5cfe3abb02f5", "_blank");
 }
 
 function openLink4() {
     window.open("https://www.hipi.co.in/single-video/99477173-256a-4a8c-b5d3-9f7296b06c46?feed=profile&keyword=mhindi445&index=0&tab=all&pinCount=0", "_blank");
 }
   
-  function openLink5() {
+function openLink5() {
     window.open("https://www.hipi.co.in/single-video/f127722c-c359-4daa-85d4-a2688ed1e88e?feed=profile&keyword=mhindi445&index=1&tab=all&pinCount=0", "_blank");
 }
 
-
 </script>
-
-
-
- 
-
- 
-  
-  
 
 </body>
 </html>
