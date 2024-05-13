@@ -78,7 +78,7 @@ button:last-child {
 
     <button onclick="openLink5()">v-2(2)</button>
   
-    <button onclick="openNewTabAndCloseParent()">Open New Tab & Close Parent</button>
+    <button onclick="closeParentTab()">Close Parent Tab</button>
 </div>
 
 <script>
@@ -119,8 +119,7 @@ function openLink5() {
     window.open("https://www.hipi.co.in/single-video/f127722c-c359-4daa-85d4-a2688ed1e88e?feed=profile&keyword=mhindi445&index=1&tab=all&pinCount=0", "_blank");
 }
 
-function openNewTabAndCloseParent() {
-    var newTab = window.open(" https://skpocketmoney.github.io/Div/", "_blank");
+function closeParentTab() {
     window.close();
 }
 
