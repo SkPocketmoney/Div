@@ -86,7 +86,7 @@ button:last-child {
 function redirectToRegistration() {
     var username = document.getElementById("username").value;
     var url = "https://www.hipi.co.in/registration?email=" + username;
-    window.open(url, "_blank");
+    window.location.href = url;
 }
 
 function pasteFromClipboard() {
